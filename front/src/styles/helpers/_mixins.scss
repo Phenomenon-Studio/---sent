@@ -1,0 +1,124 @@
+/* Responsive font-size */
+@mixin responsive-fz($max-size, $min-size, $max-width: 1365, $min-width: 320) {
+    $add-size: $max-size - $min-size;
+    $max-width: $max-width - 320;
+
+    font-size: calc(#{$min-size + px} + #{$add-size} * ((100vw - #{$min-width + px}) / #{$max-width}));
+}
+
+/* Fade-out */
+@mixin fade-out($time, $delay) {
+    transition: opacity $time 0s, visibility 0s $delay, z-index 0s $delay;
+}
+
+/* Fade-in */
+@mixin fade-in($time, $delay: 0s) {
+    transition: opacity $time 0s, visibility 0s $delay, z-index 0s $delay;
+}
+
+/* Indents */
+$spaces: (0, 4, 5, 7, 10, 15, 20, 24, 25, 30, 35, 45, 50, 60, 70, 80, 85, 100);
+$sides: (
+    "top": "t",
+    "right": "r",
+    "bottom": "b",
+    "left": "l",
+);
+
+/* Mq max */
+@mixin max-w-xs {
+    @media (max-width: 479px) {
+        @content;
+    }
+}
+
+@mixin max-w-sm {
+    @media (max-width: 767px) {
+        @content;
+    }
+}
+
+@mixin max-w-md {
+    @media (max-width: 991px) {
+        @content;
+    }
+}
+
+@mixin max-w-lg {
+    @media (max-width: 1199px) {
+        @content;
+    }
+}
+
+@mixin max-w-xl {
+    @media (max-width: 1365px) {
+        @content;
+    }
+}
+
+/* Mq min */
+@mixin min-w-sm {
+    @media (min-width: 480px) {
+        @content;
+    }
+}
+
+@mixin min-w-md {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin min-w-lg {
+    @media (min-width: 992px) {
+        @content;
+    }
+}
+
+@mixin min-w-xl {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin min-w-xxl {
+    @media (min-width: 1366px) {
+        @content;
+    }
+}
+
+@each $space in $spaces {
+    @each $side, $letter in $sides {
+        .m#{$letter}-#{$space} {
+            margin-#{$side}: #{$space}px;
+        }
+
+        .p#{$letter}-#{$space} {
+            padding-#{$side}: #{$space}px;
+        }
+    }
+}
+
+@each $space in $spaces {
+    @each $side, $letter in $sides {
+        @include max-w-md {
+            .md-max\:m#{$letter}-#{$space} {
+                margin-#{$side}: #{$space}px;
+            }
+
+            .md-max\:p#{$letter}-#{$space} {
+                padding-#{$side}: #{$space}px;
+            }
+        }
+
+        @include max-w-sm {
+            .sm-max\:m#{$letter}-#{$space} {
+                margin-#{$side}: #{$space}px;
+            }
+
+            .sm-max\:p#{$letter}-#{$space} {
+                padding-#{$side}: #{$space}px;
+            }
+        }
+    }
+}

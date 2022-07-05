@@ -1,0 +1,189 @@
+.card {
+    background-color: $dark-500;
+
+    &\:hover {
+        border: 1px solid transparent;
+        will-change: border-color;
+        transform: border-color $transition ease;
+
+        &:hover {
+            border-color: $teal-200;
+        }
+    }
+
+    &--dark {
+        background-color: $dark-100;
+        border: 1px solid $dark-500;
+    }
+
+    &--xl {
+        border-radius: 52px;
+
+        @include max-w-sm {
+            border-radius: 32px;
+        }
+
+        & .card__holder {
+            padding: 3em;
+
+            @include max-w-sm {
+                padding: 1.25em;
+            }
+        }
+    }
+
+    &--lg {
+        border-radius: 52px;
+
+        @include max-w-sm {
+            border-radius: 32px;
+        }
+
+        & .card__holder {
+            padding: 2em 2.813em;
+
+            @include max-w-sm {
+                padding: 1.25em;
+            }
+        }
+    }
+
+    &--md {
+        border-radius: 36px;
+
+        @include max-w-sm {
+            border-radius: 32px;
+        }
+
+        & .card__holder {
+            padding: 2em;
+
+            @include max-w-sm {
+                padding: 1.5em;
+            }
+        }
+    }
+
+    &--sm {
+        border-radius: 32px;
+
+        @include max-w-sm {
+            border-radius: 30px;
+        }
+
+        & .card__holder {
+            padding: 1.5em;
+        }
+    }
+
+    &__num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        border: 1px solid $dark-300;
+
+        & > span {
+            color: $white;
+            font-size: 1.25em;
+            line-height: 120%;
+            font-weight: 600;
+        }
+    }
+
+    &__more {
+        display: inline-flex;
+        align-items: center;
+        color: $white;
+        line-height: 140%;
+        // transform: color $transition ease;
+
+        & > svg {
+            flex-shrink: 0;
+            fill: $white;
+            stroke: $white;
+            // transform: fill $transition ease, stroke $transition ease;
+
+            &.icon-arrow {
+                width: 0.7em;
+                height: 1em;
+                margin-left: 0.625em;
+            }
+        }
+    }
+
+    &__pic {
+        text-align: center;
+    }
+
+    &__small-pic {
+        width: 3em;
+        height: 3em;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__small-icon {
+        display: inline-flex;
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        & > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    & .icon-stars {
+        max-width: 7em;
+        max-height: 1em;
+    }
+
+    &__items {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-column-gap: 1.5em;
+        grid-row-gap: 2em;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+
+        @include min-w-md {
+            grid-template-columns: repeat(2, 0.5fr);
+        }
+
+        @include min-w-lg {
+            grid-template-columns: 0.55fr 0.45fr;
+        }
+    }
+}
+
+.cards-col-3 {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-column-gap: 1.5em;
+    grid-row-gap: 1.5em;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    @include min-w-sm {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    @include min-w-lg {
+        grid-template-columns: repeat(3, 0.3333fr);
+    }
+}

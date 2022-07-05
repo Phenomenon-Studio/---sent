@@ -1,0 +1,16 @@
+.hiring {
+    position: relative;
+
+    &__card {
+        @include min-w-md {
+            min-height: 320px;
+        }
+    }
+
+    & .figure {
+        position: absolute;
+        top: 9%;
+        right: 0;
+        pointer-events: none;
+    }
+}

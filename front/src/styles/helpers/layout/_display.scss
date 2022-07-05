@@ -1,0 +1,39 @@
+.flex {
+    display: flex;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+.block {
+    display: block;
+}
+
+.none {
+    display: none;
+}
+
+.sm-max\: {
+    @include max-w-sm {
+        &none {
+            display: none;
+        }
+
+        &block {
+            display: block;
+        }
+
+        &inline-flex {
+            display: inline-flex;
+        }
+    }
+}
+
+.xs-max\: {
+    @include max-w-xs {
+        &none {
+            display: none;
+        }
+    }
+}

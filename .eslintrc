@@ -1,0 +1,43 @@
+{
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "node": true,
+        "commonjs": true,
+        "es6": true,
+        "jquery": true
+    },
+    "extends": ["eslint:recommended", "google"],
+    "parserOptions": {
+        "ecmaVersion": 2020
+    },
+    "globals": {
+        "BigInt": true
+    },
+    "ignorePatterns": ["node_modules/", "/dist/"],
+    "rules": {
+        "valid-jsdoc": "off",
+        "require-jsdoc": "off",
+        "object-curly-spacing": "off",
+        "arrow-parens": "off",
+        "linebreak-style": "off",
+        "comma-dangle": "off",
+        "operator-linebreak": "off",
+        "spaced-comment": "off",
+        "space-before-function-paren": "off",
+        "no-invalid-this": "off",
+        "max-len": ["error", { "code": 120 }],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "no-loop-func": ["error"],
+        "comma-style": ["error", "last"],
+        "space-before-blocks": ["error", "always"],
+        "no-mixed-spaces-and-tabs": ["error"],
+        "no-unused-vars": ["error"],
+        "no-extra-semi": ["error"],
+        "no-console": ["warn"],
+        "one-var": "off",
+        "no-debugger": "warn",
+        "indent": ["error", 4, { "SwitchCase": 1, "VariableDeclarator": 1 }]
+    }
+}

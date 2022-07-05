@@ -1,0 +1,12 @@
+.header {
+    background-color: $dark-100;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    will-change: top;
+    transition: top 0.8s cubic-bezier(0.8, 0, 0.2, 1);
+
+    &.is-hide-header {
+        top: -100%;
+    }
+}

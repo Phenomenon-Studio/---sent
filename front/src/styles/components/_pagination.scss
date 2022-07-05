@@ -1,0 +1,209 @@
+.pagination {
+    width: 100%;
+
+    @include min-w-sm {
+        width: 100%;
+        max-width: 33em;
+        padding: 0.625em;
+        border-radius: 41px;
+        background-color: $dark-500;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    &__holder {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 0.625em;
+        padding-right: 0.625em;
+
+        @include min-w-sm {
+            max-width: 28em;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__prev,
+    &__next,
+    & .prev,
+    & .next {
+        display: inline-flex;
+        align-items: center;
+        color: $muted-100;
+        line-height: 140%;
+
+        & > svg {
+            flex-shrink: 0;
+            stroke: $muted-100;
+
+            &.icon-arrow {
+                width: 0.7em;
+                height: 1em;
+                margin-left: 0.625em;
+            }
+        }
+
+        & .desktop {
+            display: none;
+
+            @include min-w-sm {
+                display: inline;
+            }
+        }
+
+        & .mob {
+            @include min-w-sm {
+                display: none;
+            }
+        }
+    }
+
+    &__prev,
+    & .prev {
+        & > svg {
+            transform: scaleX(-1);
+
+            &.icon-arrow {
+                margin-left: 0;
+                margin-right: 0.625em;
+            }
+        }
+    }
+
+    & a {
+        & .pagination__prev,
+        & .pagination__next,
+        & .prev,
+        & .next {
+            color: $white;
+            transition: color $transition ease;
+
+            & svg {
+                stroke: $white;
+                transition: stroke $transition ease;
+            }
+
+            &:not([disabled]):hover {
+                color: $teal-100;
+
+                & svg {
+                    stroke: $teal-100;
+                    fill: $teal-100;
+                }
+            }
+
+            &:not([disabled]):active {
+                color: $teal-200;
+
+                & svg {
+                    stroke: $teal-200;
+                    fill: $teal-200;
+                }
+            }
+        }
+    }
+
+    &__truncate {
+        display: inline-flex;
+        height: 100%;
+        align-items: center;
+        line-height: 168%;
+        color: $muted-200;
+    }
+}
+
+ul.page-numbers {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding-left: 0.625em;
+    padding-right: 0.625em;
+
+    @include max-w-xs {
+        display: none;
+    }
+
+    & li {
+        display: inline-flex;
+        align-items: center;
+        flex-shrink: 0;
+        text-align: center;
+
+        &:nth-child(n + 2) {
+            margin-left: 4px;
+        }
+
+        & .prev {
+            margin-right: auto;
+        }
+
+        & .next {
+            margin-left: auto;
+        }
+
+        &:empty {
+            display: none;
+            margin-left: 0;
+        }
+    }
+}
+
+a.page-numbers,
+span.page-numbers {
+    &:not(.prev),
+    &:not(.next) {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.25em;
+        height: 2.25em;
+        color: $muted-200;
+        border-radius: 50%;
+        line-height: 150%;
+        font-weight: 600;
+    }
+}
+
+a.page-numbers {
+    transition: background-color $transition ease, color $transition ease;
+
+    &:hover,
+    &:active,
+    &.current {
+        background-color: $dark-600;
+        color: $white;
+    }
+
+    &.prev,
+    &.next {
+        border-radius: 0;
+        background-color: transparent;
+        color: $white;
+        font-weight: 400;
+        height: auto;
+        justify-content: start;
+        transition: color 0.3s ease;
+        width: auto;
+    }
+}
+
+span.page-numbers {
+    &.current {
+        background-color: $dark-600;
+        color: $white;
+    }
+
+    &.prev,
+    &.next {
+        font-weight: 400;
+        justify-content: start;
+        border-radius: none;
+        color: $muted-100;
+        width: auto;
+        height: auto;
+    }
+}

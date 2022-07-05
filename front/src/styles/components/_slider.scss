@@ -1,0 +1,226 @@
+// .slider-control {
+//     & .swiper-button-next,
+//     & .swiper-button-prev {
+//         display: inline-flex;
+//         align-items: center;
+//         justify-content: flex-start;
+//         border-radius: 20px;
+//         padding: 1.4em;
+//         margin-top: 0;
+//         width: auto;
+//         top: 0;
+//         position: static;
+//         background-color: $default;
+
+//         & svg {
+//             fill: $white;
+//             transform: fill $duration-main;
+//         }
+
+//         &::before,
+//         &::after {
+//             display: none;
+//         }
+
+//         &:not(.swiper-button-disabled):hover {
+//             background-color: $white;
+//             border-color: $default;
+//             color: $default;
+
+//             & svg {
+//                 fill: $default;
+//             }
+//         }
+
+//         &:not(.swiper-button-disabled):active {
+//             background-color: $dark-200;
+//             border-color: transparent;
+//             color: $white;
+
+//             & svg {
+//                 fill: $white;
+//             }
+//         }
+
+//         &.swiper-button-disabled {
+//             background-color: $light-100;
+//             opacity: 1;
+//             pointer-events: none;
+
+//             & svg {
+//                 fill: $light-300;
+//             }
+//         }
+//     }
+
+//     & .swiper-button-prev {
+//         transform: scale(-1);
+//     }
+// }
+
+// .slider-pagination {
+//     flex-shrink: 0;
+//     display: inline-flex;
+//     align-items: center;
+//     justify-content: center;
+//     min-width: 2.813em;
+//     width: auto;
+//     margin-left: 0.625em;
+//     margin-right: 0.625em;
+// }
+
+// .slider-main {
+//     & .swiper-slide {
+//         border-radius: 40px;
+//         height: 100%;
+//         background: $dark-100;
+//         overflow: hidden;
+//         display: flex;
+//         align-items: stretch;
+//     }
+
+//     &__control {
+//         display: flex;
+//         align-items: center;
+
+//         &.mobile {
+//             display: none;
+//         }
+//     }
+// }
+
+.two-sliders {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-column-gap: 0;
+    grid-row-gap: 2.188em;
+    grid-template-columns: repeat(auto-fill, minmax(auto, 525px));
+    grid-template-rows: auto;
+
+    @include min-w-md {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    &__main {
+        min-width: 0;
+
+        & .swiper-container {
+            height: 100%;
+            border-radius: 40px;
+
+            @include max-w-sm {
+                border-radius: 32px;
+            }
+        }
+
+        & .swiper-slide {
+            overflow: hidden;
+            border-radius: 40px;
+
+            @include max-w-sm {
+                border-radius: 32px;
+                max-height: 15.938em;
+            }
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__second {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        @include min-w-md {
+            padding-left: 15%;
+        }
+
+        &-holder {
+            @include max-w-sm {
+                margin-top: 2.188em;
+            }
+
+            margin-top: 3em;
+            width: 100%;
+
+            & .swiper-slide {
+                &:not(.swiper-slide-active) {
+                    @include max-w-sm {
+                        & > * {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.slider-control-pagination {
+    & .swiper-pagination-bullet {
+        width: 48px;
+        height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        color: $muted-200;
+        font-weight: 600;
+        font-size: 1.25em;
+        line-height: 120%;
+        opacity: 1;
+        transition: color $transition ease-in-out, background-color $transition ease-in-out;
+
+        &.swiper-pagination-bullet-active {
+            background-color: $dark-600;
+            color: $white;
+        }
+
+        &:nth-child(n + 2) {
+            margin-left: 5px;
+        }
+    }
+}
+
+.slider-bullets {
+    display: flex;
+    margin-left: -12px;
+    margin-right: -12px;
+
+    & .swiper-pagination-bullet {
+        flex: 1 1 auto;
+        border-radius: 5px;
+        position: relative;
+        height: 5px;
+        margin-left: 12px;
+        margin-right: 12px;
+        background-color: $dark-500;
+        opacity: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 0;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            border-radius: 5px;
+            background-color: $white;
+            transition: width $transition ease-in-out;
+        }
+
+        &.swiper-pagination-bullet-active {
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.swiper-slide {
+    transform: translateZ(0);
+}

@@ -1,0 +1,28 @@
+.two-items {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-column-gap: 1.5em;
+    grid-row-gap: 1.25em;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+
+    @include min-w-md {
+        grid-template-columns: repeat(2, 0.5fr);
+    }
+
+    &--xs-collapse {
+        @include min-w-sm {
+            grid-template-columns: repeat(2, 0.5fr);
+        }
+    }
+
+    &--sm-reverse {
+        @include max-w-sm {
+            & > * {
+                &:first-child {
+                    order: 2;
+                }
+            }
+        }
+    }
+}

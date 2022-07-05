@@ -1,0 +1,28 @@
+.flex {
+    &-1 {
+        flex: 1 1 0%;
+        min-width: 0;
+    }
+
+    &-auto {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    &-initial {
+        flex: 0 1 auto;
+        min-width: 0;
+    }
+
+    &-none {
+        flex: none;
+    }
+}
+
+.shrink {
+    flex-shrink: 1;
+
+    &-0 {
+        flex-shrink: 0;
+    }
+}

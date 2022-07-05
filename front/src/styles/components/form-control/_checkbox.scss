@@ -1,0 +1,39 @@
+.checkbox {
+    position: relative;
+    display: inline-flex;
+    cursor: pointer;
+
+    & .chip {
+        flex-shrink: 0;
+        will-change: background-color;
+        transition: background-color $transition ease;
+    }
+
+    input[type="checkbox"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+
+        &:not([disabled]):hover {
+            & ~ .chip {
+                background-color: $dark-600;
+            }
+        }
+
+        &:checked {
+            & ~ .chip {
+                background-color: $dark-600;
+            }
+        }
+
+        &[disabled] {
+            pointer-events: none !important;
+        }
+    }
+
+    &.disabled {
+        cursor: not-allowed !important;
+    }
+}

@@ -1,0 +1,85 @@
+.chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.313em 0.75em;
+    border-radius: 22px;
+    background-color: $dark-500;
+
+    & > span {
+        font-weight: 600;
+        font-size: 0.813em;
+        line-height: 140%;
+        color: $white;
+    }
+
+    &--outline {
+        border: 1px solid $dark-300;
+    }
+
+    &--sm {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+    }
+
+    &--md {
+        padding: 0.4em 1.313em;
+    }
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-bottom: -12px;
+
+    & > .chip {
+        margin-left: 6px;
+        margin-right: 6px;
+        margin-bottom: 12px;
+    }
+}
+
+.chips-sm {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+    margin-bottom: -8px;
+
+    & > .chip {
+        margin-left: 4px;
+        margin-right: 4px;
+        margin-bottom: 8px;
+    }
+}
+
+.chips-slider\:xs {
+    & .swiper-container {
+        margin-left: -15px;
+        margin-right: -15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    & .swiper-wrapper {
+        @include min-w-sm {
+            flex-wrap: wrap;
+            margin-left: -4px;
+            margin-right: -4px;
+            margin-bottom: -8px;
+        }
+    }
+
+    & .swiper-slide {
+        width: auto;
+        height: auto;
+        margin-left: 4px;
+        margin-right: 4px;
+
+        @include min-w-sm {
+            margin-bottom: 8px;
+        }
+    }
+}

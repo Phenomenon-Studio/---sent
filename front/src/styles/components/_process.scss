@@ -1,0 +1,23 @@
+.process {
+    &__card {
+        @include min-w-md {
+            min-height: 390px;
+        }
+    }
+
+    &__pic {
+        @include max-w-xs {
+            max-width: 250px;
+        }
+    }
+
+    & .swiper-slide {
+        &:not(.swiper-slide-active) {
+            @include max-w-sm {
+                & > * {
+                    display: none;
+                }
+            }
+        }
+    }
+}

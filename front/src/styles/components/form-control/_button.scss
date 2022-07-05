@@ -1,0 +1,161 @@
+.btn {
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    padding: 0.813em 1.25em;
+    outline: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 140%;
+    border-radius: 40px;
+    user-select: none;
+    border: none;
+    color: $white;
+    opacity: 1;
+    transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out,
+        opacity 0.15s ease-in-out;
+
+    &--less-p {
+        padding: 0.563em;
+    }
+
+    &[disabled],
+    &.disabled {
+        pointer-events: none !important;
+        cursor: not-allowed !important;
+
+        & * {
+            pointer-events: none !important;
+        }
+    }
+
+    &.xs-max\:none {
+        @include max-w-xs {
+            display: none;
+        }
+    }
+
+    &--primary {
+        background-color: $teal-100;
+
+        & svg {
+            fill: rgba($white, 0.5);
+            margin-left: 0.5em;
+
+            &.icon-flash {
+                max-width: 1em;
+                max-height: 1.375em;
+            }
+        }
+
+        &:not([disabled]):hover {
+            background-color: $white;
+            color: $teal-100;
+
+            & svg {
+                fill: $teal-100;
+            }
+        }
+
+        &:not([disabled]):active {
+            background-color: $teal-200;
+            color: $white;
+
+            & svg {
+                fill: rgba($white, 0.5);
+            }
+        }
+
+        &[disabled],
+        &.disabled {
+            background-color: $dark-200;
+            color: $dark-400;
+
+            & svg {
+                fill: $dark-400;
+            }
+        }
+    }
+
+    &--light {
+        background-color: $white;
+        border-color: $black;
+        border-radius: 10px;
+    }
+
+    &--outline {
+        border: 1px solid $white;
+        color: $white;
+
+        & svg {
+            fill: $white;
+        }
+
+        &:not([disabled]):hover {
+            border-color: $teal-100;
+            color: $teal-100;
+
+            & svg {
+                fill: $teal-100;
+            }
+        }
+
+        &:not([disabled]):active {
+            border-color: $teal-200;
+            color: $teal-200;
+
+            & svg {
+                fill: $teal-200;
+            }
+        }
+    }
+
+    &\:xs--min-w {
+        @include max-w-xs {
+            min-width: 9.75em;
+        }
+    }
+}
+
+.btns-group {
+    display: grid;
+    grid-auto-columns: auto;
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+
+    @include min-w-sm {
+        grid-template-columns: repeat(2, 0.5fr);
+        grid-template-columns: repeat(auto-fill, minmax(calc(50% - 0.5em), 1fr));
+    }
+
+    @include max-w-xs {
+        grid-template-columns: 1fr;
+    }
+
+    & .btn {
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+    }
+}
+
+button,
+a {
+    &[disabled],
+    &.disabled {
+        pointer-events: none !important;
+        cursor: not-allowed !important;
+
+        & * {
+            pointer-events: none !important;
+        }
+    }
+}

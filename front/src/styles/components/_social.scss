@@ -1,0 +1,51 @@
+.social {
+    display: flex;
+
+    @include max-w-sm {
+        margin-top: 0.875em;
+        justify-content: center;
+    }
+
+    & > li {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+
+        &:nth-child(n + 2) {
+            margin-left: 1.25em;
+        }
+
+        & > a {
+            display: inline-flex;
+
+            & > svg {
+                max-width: 1.375em;
+                max-height: 1.375em;
+
+                &,
+                & path {
+                    fill: $muted-200;
+                    transition: fill $transition;
+                }
+            }
+
+            &:hover {
+                & > svg {
+                    &,
+                    & path {
+                        fill: $teal-100;
+                    }
+                }
+            }
+
+            &:active {
+                & > svg {
+                    &,
+                    & path {
+                        fill: $teal-200;
+                    }
+                }
+            }
+        }
+    }
+}

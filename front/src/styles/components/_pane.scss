@@ -1,0 +1,39 @@
+.pane {
+    & > li {
+        &:nth-child(n + 2) {
+            margin-top: 4px;
+        }
+    }
+
+    & a {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        line-height: 140%;
+        padding: 0.5em 1em;
+        border-radius: 23px;
+        color: $muted-200;
+        will-change: background-color;
+
+        &,
+        & > span {
+            color: $muted-200;
+            transition: background-color $transition ease, color $transition ease;
+        }
+
+        &:hover,
+        &:active,
+        &.is-active {
+            background-color: $dark-500;
+
+            &,
+            & > span {
+                color: $white;
+            }
+        }
+
+        & > span {
+            font-size: 0.813em;
+        }
+    }
+}

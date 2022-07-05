@@ -1,0 +1,125 @@
+%fixedXY {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.no-scroll {
+    overflow-y: scroll;
+
+    @extend %fixedXY;
+}
+
+.container {
+    width: 100%;
+    padding: 0 15px;
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+.link {
+    display: inline-flex;
+    align-items: center;
+    color: $white;
+    line-height: 140%;
+    transition: color $transition ease;
+
+    & > svg {
+        flex-shrink: 0;
+        fill: $white;
+        stroke: $white;
+        transition: fill $transition ease, stroke $transition ease;
+
+        &.icon-arrow {
+            width: 0.7em;
+            height: 1em;
+            margin-left: 0.625em;
+        }
+
+        &.icon-arrow-up {
+            width: 0.9em;
+            height: 0.9em;
+            margin-left: 0.375em;
+        }
+    }
+
+    &:not([disabled]):hover {
+        color: $teal-100;
+
+        & svg {
+            stroke: $teal-100;
+            fill: $teal-100;
+        }
+    }
+
+    &:not([disabled]):active {
+        color: $teal-200;
+
+        & svg {
+            stroke: $teal-200;
+            fill: $teal-200;
+        }
+    }
+
+    &--reverse {
+        & svg {
+            transform: scaleX(-1);
+
+            &.icon-arrow {
+                margin-left: 0;
+                margin-right: 0.625em;
+            }
+        }
+    }
+
+    &.chip {
+        will-change: background-color;
+        transition: background-color $transition ease;
+
+        &:not([disabled]):hover {
+            background-color: $dark-600;
+            color: $white;
+
+            & svg {
+                stroke: $white;
+                fill: $white;
+            }
+        }
+
+        &:not([disabled]):active {
+            background-color: $dark-700;
+            color: $white;
+
+            & svg {
+                stroke: $white;
+                fill: $white;
+            }
+        }
+    }
+}
+
+.rating {
+    display: flex;
+
+    & > img {
+        flex-shrink: 0;
+
+        &:nth-child(n + 2) {
+            margin-left: 0.563em;
+        }
+    }
+}
+
+.not-allowed {
+    cursor: not-allowed !important;
+
+    & * {
+        pointer-events: none !important;
+    }
+}
+
+.primary {
+    min-height: 100vh;
+}

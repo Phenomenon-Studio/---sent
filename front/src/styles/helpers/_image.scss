@@ -1,0 +1,27 @@
+.image {
+    overflow: hidden;
+
+    & > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+        overflow: hidden;
+    }
+
+    &--rounded-md {
+        border-radius: 28px;
+
+        & > img {
+            border-radius: 28px;
+        }
+
+        @include min-w-md {
+            border-radius: 40px;
+
+            & > img {
+                border-radius: 40px;
+            }
+        }
+    }
+}

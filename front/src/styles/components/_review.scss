@@ -1,0 +1,32 @@
+.review {
+    &__item {
+        min-height: 16.688em;
+
+        @include max-w-sm {
+            min-height: 15.5em;
+        }
+    }
+
+    & .figure {
+        position: absolute;
+        top: -16%;
+        right: 13.5%;
+        pointer-events: none;
+
+        @include min-w-lg {
+            top: -31%;
+        }
+    }
+
+    & .signature {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        pointer-events: none;
+
+        @include min-w-xxl {
+            top: 3%;
+            left: -3.5%;
+        }
+    }
+}

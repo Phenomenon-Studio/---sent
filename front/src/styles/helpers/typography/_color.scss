@@ -1,0 +1,9 @@
+.color {
+    &-white {
+        color: $white;
+    }
+
+    &-muted {
+        color: $muted-100;
+    }
+}

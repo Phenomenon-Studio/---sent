@@ -1,0 +1,27 @@
+.spinner {
+    min-width: 40px;
+    min-height: 40px;
+    border: 5px solid rgba($dark-500, 0.2);
+    border-right: 5px solid $teal-100;
+    border-radius: 50%;
+    animation: spinner 1s linear infinite;
+
+    &-wrap {
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@keyframes spinner {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

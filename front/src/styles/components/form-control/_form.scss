@@ -1,0 +1,144 @@
+.form {
+    &__control {
+        position: relative;
+
+        & label {
+            display: block;
+            position: relative;
+        }
+
+        & input {
+            width: 100%;
+            background-color: $dark-500;
+            font-weight: 400;
+            line-height: 155%;
+            outline: none;
+            color: $white;
+            padding: 0.5em 1em;
+            border: 1px solid $dark-300;
+            border-radius: 25px;
+            will-change: border-color;
+            transition: color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+
+            &:not(.error):hover,
+            &:not(.error):focus {
+                border-color: $teal-100;
+            }
+
+            &[disabled] {
+                // border-color: $muted-200;
+                opacity: 0.7;
+
+                &:not(.error):hover,
+                &:not(.error):focus {
+                    // border-color: $muted-200;
+                }
+            }
+
+            &.error {
+                border-color: red;
+            }
+
+            &[type="search"] {
+                padding-left: 2.5em;
+
+                & ~ svg {
+                    stroke: $muted-200;
+                    width: 1.375em;
+                    height: 1.375em;
+                    position: absolute;
+                    pointer-events: none;
+                    top: 50%;
+                    left: 0.75em;
+                    transform: translateY(-50%);
+                    will-change: stroke;
+                    transition: stroke 0.15s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+input,
+button {
+    &[hidden] {
+        position: fixed !important;
+        width: 0;
+        height: 0;
+        z-index: -20;
+        visibility: hidden;
+        opacity: 0;
+        padding: 0;
+        border: none;
+        outline: none;
+    }
+}
+
+input,
+textarea {
+    &::placeholder {
+        color: $muted-200;
+        opacity: 1;
+        line-height: 155%;
+    }
+
+    &:-moz-placeholder {
+        color: $muted-200;
+        opacity: 1;
+        line-height: 155%;
+    }
+
+    &::-moz-placeholder {
+        color: $muted-200;
+        opacity: 1;
+        line-height: 155%;
+    }
+
+    &:-ms-input-placeholder {
+        color: $muted-200;
+        opacity: 1;
+        line-height: 155%;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $muted-200;
+        opacity: 1;
+        line-height: 155%;
+    }
+
+    &:focus {
+        &::placeholder {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:-moz-placeholder {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &::-moz-placeholder {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &:-ms-input-placeholder {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        &::-webkit-input-placeholder {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
+}
+
+input[type="search"] {
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration {
+        display: none;
+    }
+}

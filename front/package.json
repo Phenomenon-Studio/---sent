@@ -1,0 +1,74 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js --mode=development",
+        "start": "cross-env NODE_ENV=development webpack --config config/webpack.dev.config.js --watch --mode=development",
+        "build": "cross-env NODE_ENV=production webpack --config config/webpack.prod.config.js --mode=production",
+        "stats": "webpack --config config/webpack.prod.config.js --mode=production --json > stats.json && webpack-bundle-analyzer stats.json",
+        "lint:js": "eslint --ext .js src/scripts/",
+        "lint:scss": "stylelint \"src/styles/**/*.scss\"",
+        "prepare": "cd .. && husky install front/.husky",
+        "lint-staged": "lint-staged"
+    },
+    "lint-staged": {
+        "src/scripts/**/*.js": [
+            "npm run lint:js"
+        ],
+        "src/styles/**/*.scss": [
+            "npm run lint:scss"
+        ]
+    },
+    "devDependencies": {
+        "@babel/core": "^7.18.2",
+        "@babel/preset-env": "^7.18.2",
+        "autoprefixer": "^10.4.7",
+        "babel-loader": "^8.2.5",
+        "browser-sync": "^2.27.10",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "chalk": "^4.1.0",
+        "clean-webpack-plugin": "^4.0.0",
+        "copy-webpack-plugin": "^11.0.0",
+        "cross-env": "^7.0.3",
+        "css-loader": "^6.7.1",
+        "css-minimizer-webpack-plugin": "^4.0.0",
+        "eslint": "^8.16.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-plugin-import": "^2.26.0",
+        "html-webpack-plugin": "^5.5.0",
+        "husky": "^8.0.1",
+        "imagemin-webpack-plugin": "^2.4.2",
+        "ip": "^1.1.8",
+        "lint-staged": "^12.5.0",
+        "mini-css-extract-plugin": "^2.6.0",
+        "node-sass": "^7.0.1",
+        "portfinder-sync": "^0.0.2",
+        "postcss": "^8.4.14",
+        "postcss-loader": "^7.0.0",
+        "prettier": "^2.6.2",
+        "sass-loader": "^13.0.0",
+        "stylelint": "^13.13.1",
+        "stylelint-config-prettier": "^8.0.2",
+        "stylelint-config-standard": "^22.0.0",
+        "stylelint-config-standard-scss": "^4.0.0",
+        "stylelint-scss": "^3.21.0",
+        "terser-webpack-plugin": "^5.3.3",
+        "webpack": "^5.72.1",
+        "webpack-bundle-analyzer": "^4.5.0",
+        "webpack-cli": "^4.9.2",
+        "webpack-merge": "^5.8.0",
+        "webpack-php-manifest": "^0.0.9"
+    },
+    "browserslist": [
+        ">0.59%",
+        "not dead",
+        "not op_mini all",
+        "not ie <= 11"
+    ],
+    "dependencies": {
+        "animejs": "^3.2.1",
+        "axios": "^0.27.2",
+        "normalize.css": "^8.0.1",
+        "swiped-events": "^1.1.6",
+        "swiper": "^6.7.5"
+    }
+}

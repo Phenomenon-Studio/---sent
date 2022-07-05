@@ -1,0 +1,102 @@
+.cases {
+    &__one {
+        position: relative;
+
+        & .figure {
+            position: absolute;
+            top: 4%;
+            left: 7.5%;
+            pointer-events: none;
+        }
+
+        & .signature {
+            position: absolute;
+            top: 8.2%;
+            right: -0.5%;
+            pointer-events: none;
+        }
+    }
+
+    &__two {
+        position: relative;
+
+        & .figure {
+            position: absolute;
+            top: -15.5%;
+            left: 6.5%;
+            pointer-events: none;
+        }
+
+        & .signature {
+            position: absolute;
+            z-index: 5;
+            top: -4%;
+            right: 0;
+            pointer-events: none;
+
+            @include min-w-xxl {
+                top: -8%;
+                right: -6.5%;
+            }
+        }
+    }
+
+    &__holder {
+        display: grid;
+        grid-auto-columns: auto;
+        grid-column-gap: 0;
+        grid-row-gap: 2.188em;
+        grid-template-columns: repeat(auto-fill, minmax(auto, 525px));
+        grid-template-rows: auto;
+
+        @include min-w-md {
+            grid-template-columns: repeat(2, 0.5fr);
+        }
+
+        &__pic {
+            height: 100%;
+            overflow: hidden;
+            border-radius: 40px;
+
+            @include max-w-sm {
+                border-radius: 32px;
+                max-height: 15.938em;
+            }
+
+            & img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    &__slider {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+
+        @include min-w-md {
+            padding-left: 15%;
+        }
+
+        &-holder {
+            @include max-w-sm {
+                margin-top: 2.188em;
+            }
+
+            margin-top: 3em;
+            width: 100%;
+
+            & .swiper-slide {
+                &:not(.swiper-slide-active) {
+                    @include max-w-sm {
+                        & > * {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

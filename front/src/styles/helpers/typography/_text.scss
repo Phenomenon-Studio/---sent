@@ -1,0 +1,13 @@
+.text {
+    &-center {
+        text-align: center;
+    }
+}
+
+.sm-max\:text {
+    @include max-w-sm {
+        &-left {
+            text-align: left;
+        }
+    }
+}

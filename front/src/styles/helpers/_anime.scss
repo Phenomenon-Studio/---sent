@@ -1,0 +1,44 @@
+[data-el-anime="title"] {
+    opacity: 0;
+    will-change: opacity;
+
+    .word {
+        display: inline-flex;
+    }
+
+    .letter {
+        display: inline-block;
+        transform: scale(0) translateY(75px);
+        will-change: transform;
+    }
+}
+
+[data-el-anime="lift-up"] {
+    opacity: 0;
+    transform: translateY(100px);
+    will-change: transform, opacity;
+}
+
+[data-wait-anime="button"] {
+    opacity: 0;
+    transform: translateY(20px);
+    will-change: transform, opacity;
+}
+
+[data-el-anime="fade-in-right"],
+[data-wait-anime="fade-in-left"],
+[data-el-anime="scale-decrease"],
+[data-el-anime="rectangle-scale-decrease"] {
+    opacity: 0;
+    will-change: transform, opacity;
+}
+
+[data-el-anime="fade-in"] {
+    opacity: 0;
+    will-change: opacity;
+}
+
+[data-item-anime] {
+    opacity: 0;
+    will-change: transform, opacity;
+}

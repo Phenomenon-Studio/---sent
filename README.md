@@ -13,3 +13,5 @@ The stack and project description is described below.
 
 ## Project description
 
+For the ***sent project, we created a custom design with smooth micro animations for the landing page and blog. For the front-end, we used SCSS and JavaScript, and the admin panel was developed on WordPress.
+
